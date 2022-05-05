@@ -1,0 +1,37 @@
+/*
+Decompiled By LOSTED
+https://github.com/LOSTEDs
+LOSTED#8754
+https://www.youtube.com/watch?v=xg2M21todDU&t=55s
+"...Minecraft client created by professional developers exclusively for me..." - SuchSpeed
+Here is a better way to say this, "...Minecraft client skidded by some random script kittens exclusively for me"
+Please SuchSpeed, don't sue me... I just dumped the source...
+For Educational Purposes Only...
+*/
+
+package net.minecraft.src;
+
+import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.model.ModelRenderer;
+
+public class PlayerItemRenderer {
+    private int attachTo = 0;
+    
+    private ModelRenderer modelRenderer = null;
+    
+    public PlayerItemRenderer(int p_i84_1_, ModelRenderer p_i84_2_) {
+        this.attachTo = p_i84_1_;
+        this.modelRenderer = p_i84_2_;
+    }
+    
+    public ModelRenderer getModelRenderer() {
+        return this.modelRenderer;
+    }
+    
+    public void render(ModelBiped p_render_1_, float p_render_2_) {
+        ModelRenderer modelrenderer = PlayerItemModel.getAttachModel(p_render_1_, this.attachTo);
+        if (modelrenderer != null)
+            modelrenderer.postRender(p_render_2_); 
+        this.modelRenderer.render(p_render_2_);
+    }
+}

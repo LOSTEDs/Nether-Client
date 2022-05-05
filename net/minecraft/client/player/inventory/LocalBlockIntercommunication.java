@@ -1,0 +1,49 @@
+/*
+Decompiled By LOSTED
+https://github.com/LOSTEDs
+LOSTED#8754
+https://www.youtube.com/watch?v=xg2M21todDU&t=55s
+"...Minecraft client created by professional developers exclusively for me..." - SuchSpeed
+Here is a better way to say this, "...Minecraft client skidded by some random script kittens exclusively for me"
+Please SuchSpeed, don't sue me... I just dumped the source...
+For Educational Purposes Only...
+*/
+
+package net.minecraft.client.player.inventory;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.Container;
+import net.minecraft.util.IChatComponent;
+import net.minecraft.world.IInteractionObject;
+
+public class LocalBlockIntercommunication implements IInteractionObject {
+    private String guiID;
+    
+    private IChatComponent displayName;
+    
+    public LocalBlockIntercommunication(String guiIdIn, IChatComponent displayNameIn) {
+        this.guiID = guiIdIn;
+        this.displayName = displayNameIn;
+    }
+    
+    public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn) {
+        throw new UnsupportedOperationException();
+    }
+    
+    public String getName() {
+        return this.displayName.getUnformattedText();
+    }
+    
+    public boolean hasCustomName() {
+        return true;
+    }
+    
+    public String getGuiID() {
+        return this.guiID;
+    }
+    
+    public IChatComponent getDisplayName() {
+        return this.displayName;
+    }
+}
